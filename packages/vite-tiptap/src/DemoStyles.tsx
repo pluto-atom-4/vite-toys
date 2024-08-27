@@ -1,8 +1,9 @@
-import {Button, Flex, Paper, Text, TextInput} from "@mantine/core";
-import classes from './DemoStyles.module.css';
+import { Button, Flex, Paper, Text, TextInput } from "@mantine/core";
+import classes from "./DemoStyles.module.css";
 
 export function DemoStyles({collapsed}: { collapsed: boolean }) {
-  return (<>
+  return (
+    <>
       <div>
         <Button variant="filled">Button</Button>
         <Text c="blue.8" fz="lg">
@@ -26,15 +27,11 @@ export function DemoStyles({collapsed}: { collapsed: boolean }) {
           <Button>Small button</Button>
         </Flex>
       </div>
-      <div
-        className={classes.root}
-        data-collapsed={collapsed || undefined}
-      >
+      <div className={classes.root} data-collapsed={collapsed || undefined}>
         <button type="button" className={classes.control}>
           Control
         </button>
       </div>
     </>
-
   );
 }

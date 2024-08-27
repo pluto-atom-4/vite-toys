@@ -1,6 +1,12 @@
-import './MentionList.module.css';
-import {Paper} from "@mantine/core";
-import {ForwardedRef, forwardRef, useEffect, useImperativeHandle, useState,} from 'react';
+import "./MentionList.module.css";
+import { Paper } from "@mantine/core";
+import {
+  ForwardedRef,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from "react";
 
 import classes from "./MentionList.module.css";
 
@@ -10,24 +16,29 @@ export interface MentionListProps {
 }
 
 export type MentionListRef = {
-  onKeyDown: ({event}: { event: KeyboardEvent }) => boolean;
+  onKeyDown: ({ event }: { event: KeyboardEvent }) => boolean;
 };
 
 export default forwardRef<MentionListRef, MentionListProps>(MentionList);
 
-export function MentionList(props: MentionListProps, ref: ForwardedRef<MentionListRef>) {
+export function MentionList(
+  props: MentionListProps,
+  ref: ForwardedRef<MentionListRef>,
+) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const selectItem = (index: number) => {
     const item = props.items[index];
 
     if (item) {
-      props.command({id: item});
+      props.command({ id: item });
     }
   };
 
   const upHandler = () => {
-    setSelectedIndex((selectedIndex + props.items.length - 1) % props.items.length);
+    setSelectedIndex(
+      (selectedIndex + props.items.length - 1) % props.items.length,
+    );
   };
 
   const downHandler = () => {
@@ -41,18 +52,18 @@ export function MentionList(props: MentionListProps, ref: ForwardedRef<MentionLi
   useEffect(() => setSelectedIndex(0), [props.items]);
 
   useImperativeHandle(ref, () => ({
-    onKeyDown: ({event}: { event: KeyboardEvent }) => {
-      if (event.key === 'ArrowUp') {
+    onKeyDown: ({ event }: { event: KeyboardEvent }) => {
+      if (event.key === "ArrowUp") {
         upHandler();
         return true;
       }
 
-      if (event.key === 'ArrowDown') {
+      if (event.key === "ArrowDown") {
         downHandler();
         return true;
       }
 
-      if (event.key === 'Enter') {
+      if (event.key === "Enter") {
         enterHandler();
         return true;
       }
@@ -63,18 +74,19 @@ export function MentionList(props: MentionListProps, ref: ForwardedRef<MentionLi
 
   return (
     <Paper className={classes.dropdownMenu}>
-      {props.items.length
-        ? props.items.map((item, index) => (
+      {props.items.length ? (
+        props.items.map((item, index) => (
           <button
-            className={index === selectedIndex ? classes.isSelected : ''}
+            className={index === selectedIndex ? classes.isSelected : ""}
             key={index}
             onClick={() => selectItem(index)}
           >
             {item}
           </button>
         ))
-        : <div className="item">No result</div>
-      }
+      ) : (
+        <div className="item">No result</div>
+      )}
     </Paper>
   );
 }
