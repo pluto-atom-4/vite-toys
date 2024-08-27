@@ -1,0 +1,39 @@
+:root {
+    --white: #ffffff;
+    --gray-1: #d3d3d3;
+    --gray-2: #a9a9a9;
+    --gray-3: #808080;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown menu */
+.dropdownMenu {
+    background: var(--white);
+    border: 1px solid var(--gray-1);
+    border-radius: 0.7rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    overflow: auto;
+    padding: 0.4rem;
+    position: relative;
+}
+
+.dropdownMenu button {
+    align-items: center;
+    background-color: transparent;
+    display: flex;
+    gap: 0.25rem;
+    text-align: left;
+    width: 100%;
+}
+
+.dropdownMenu button:hover,
+.dropdown-menu button:hover.isSelected {
+    background-color: var(--gray-3);
+}
+
+.dropdownMenu button.isSelected {
+    background-color: var(--gray-2);
+}

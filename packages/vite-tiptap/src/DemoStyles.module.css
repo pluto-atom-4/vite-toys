@@ -1,0 +1,30 @@
+.root {
+    padding-right: rem(100px);
+
+    &[data-collapsed] {
+        padding-right: rem(40px);
+
+        & .control {
+            max-width: rem(200px);
+        }
+    }
+}
+
+.control {
+    background-color: var(--mantine-color-blue-1);
+    color: var(--mantine-color-blue-filled);
+    padding: var(--mantine-spacing-xl);
+    margin-left: rem(40px);
+
+    @media (max-width: $mantine-breakpoint-sm) {
+        margin-left: 0;
+        margin-top: var(--mantine-spacing-md);
+    }
+
+    @mixin hover {
+        background-color: light-dark(
+                var(--mantine-color-blue-1),
+                var(--mantine-color-blue-9)
+        );
+    }
+}
