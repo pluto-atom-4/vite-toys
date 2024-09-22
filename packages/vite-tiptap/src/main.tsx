@@ -4,6 +4,6 @@ import AppMantine from "./AppMantine.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <AppMantine />
-  </StrictMode>,
+    <AppMantine/>
+  </StrictMode>
 );

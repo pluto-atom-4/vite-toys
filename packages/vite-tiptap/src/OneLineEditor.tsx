@@ -6,7 +6,7 @@ import { Text } from "@tiptap/extension-text";
 import { Paragraph } from "@tiptap/extension-paragraph";
 import { Mention } from "@tiptap/extension-mention";
 import classes from "./DefaultTextEditor.module.css";
-import suggestion from "./suggestion.ts";
+import suggestion from "./suggestion";
 import { Button } from "@mantine/core";
 
 

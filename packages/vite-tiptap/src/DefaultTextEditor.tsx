@@ -7,7 +7,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 
-import suggestion from "./suggestion.ts";
+import suggestion from "./suggestion";
 import { Mention } from "@tiptap/extension-mention";
 
 import classes from "./DefaultTextEditor.module.css";
